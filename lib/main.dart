@@ -1,7 +1,9 @@
 import 'package:e_manazel/core/network/local/cache_helper.dart';
 import 'package:e_manazel/core/network/remote/dio_helper.dart';
-import 'package:e_manazel/views/screens/login_screen.dart';
+import 'package:e_manazel/core/themes.dart';
+import 'package:e_manazel/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,9 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+    return Sizer(
+      builder: (context, orientation, type) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }
