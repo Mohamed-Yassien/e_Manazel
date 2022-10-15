@@ -1,7 +1,7 @@
 import 'package:e_manazel/core/generated/assets.dart';
 import 'package:e_manazel/core/methods.dart';
 import 'package:e_manazel/core/responsive/ui_components/info_widget.dart';
-import 'package:e_manazel/views/screens/welcome_screen.dart';
+import 'package:e_manazel/views/screens/welcome_screen/welcome_screen.dart';
 import 'package:e_manazel/views/widgets/reusable_bg_container.dart';
 import 'package:flutter/material.dart';
 
