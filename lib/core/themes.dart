@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 ThemeData lightTheme = ThemeData(
-  primarySwatch: Colors.teal,
   textTheme: const TextTheme(
     bodyText1: TextStyle(
-      color: Colors.black,
+      color: Color(0xff496A72),
+      fontWeight: FontWeight.w500,
+      fontSize: 20,
+    ),
+    bodyText2: TextStyle(
+      color: Color(0xff496A72),
       fontWeight: FontWeight.w400,
       fontSize: 16,
     ),
-    bodyText2: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w200,
-      fontSize: 13,
-    ),
     caption: TextStyle(
-      color: Colors.grey,
+      color: Color(0xff496A72),
       fontWeight: FontWeight.w100,
       fontSize: 13,
     ),
@@ -27,14 +26,15 @@ ThemeData lightTheme = ThemeData(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
     ),
     titleTextStyle: TextStyle(
-      color: Colors.black87,
+      color: Color(0xff496A72),
       fontWeight: FontWeight.bold,
       fontSize: 18,
     ),
     iconTheme: IconThemeData(
-      color: Colors.white,
+      color: Color(0xff496A72),
       size: 24,
     ),
     elevation: 0,
