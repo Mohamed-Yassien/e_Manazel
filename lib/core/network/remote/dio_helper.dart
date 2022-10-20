@@ -75,18 +75,18 @@ class DioHelper {
   }) async {
     dio.options.headers = haveFile == true
         ? {
-            'Content-Type': 'application/json',
-            'Authorization': token,
-          }
+      'Content-Type': 'application/json',
+      'Authorization': token,
+    }
         : {
-            'Content-Type': 'application/json',
-            'Authorization': token,
-          };
+      'Content-Type': 'application/json',
+      'Authorization': token,
+    };
     print('go to form data hereeee');
     FormData formData = FormData.fromMap(body);
     print('escape form data');
     body.forEach(
-      (key, value) async {
+          (key, value) async {
         print('inside body in formmmmmmmmmmmmmm');
         print('value is $value');
         print('key is $key');
@@ -94,9 +94,9 @@ class DioHelper {
           List<MapEntry<String, MultipartFile>> files = [];
           print('inside map value ');
           value.forEach(
-            (element) {
+                (element) {
               element.forEach(
-                (elementKey, elementValue) {
+                    (elementKey, elementValue) {
                   print('element key is $elementKey');
                   print('element value is $elementValue');
                   if (elementValue is File) {
@@ -106,7 +106,9 @@ class DioHelper {
                       "$elementKey",
                       MultipartFile.fromFileSync(
                         elementValue.path,
-                        filename: elementValue.path.split("/").last,
+                        filename: elementValue.path
+                            .split("/")
+                            .last,
                       ),
                     );
                     files.add(pic);
@@ -126,7 +128,9 @@ class DioHelper {
             "$key",
             MultipartFile.fromFileSync(
               value.path,
-              filename: value.path.split("/").last,
+              filename: value.path
+                  .split("/")
+                  .last,
             ),
           );
           formData.files.add(pic);
@@ -134,12 +138,14 @@ class DioHelper {
           haveFile = true;
           List<MapEntry<String, MultipartFile>> files = [];
           value.forEach(
-            (element) async {
+                (element) async {
               MapEntry<String, MultipartFile> pic = MapEntry(
                   "$key",
                   MultipartFile.fromFileSync(
                     element.path,
-                    filename: element.path.split("/").last,
+                    filename: element.path
+                        .split("/")
+                        .last,
                   ));
               files.add(pic);
             },

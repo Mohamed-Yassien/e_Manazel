@@ -1,9 +1,2 @@
-String GET_STUDENTS = '/';
-String ADD_STUDENT = '/addStudent';
-String GET_INSTRUCTORS = '/instructors';
-String GET_SUBJECTS = '/subjects';
-String GET_COURSES = '/courses';
-String ADMIN_LOGIN = '/user/login';
-String STUDENT_LOGIN = '/loginStudent';
-String GET_PLANS = '/plans';
-String GET_PLAN_BY_ID = '/showPlan/';
+String ADMIN_LOGIN = 'admin/api/Web/login_new';
+
