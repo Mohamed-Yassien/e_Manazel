@@ -32,17 +32,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
         return Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
-              // automaticallyImplyLeading: false,
-              // leading: IconButton(
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              //   icon: const Icon(
-              //     Icons.arrow_back,
-              //     size: 30,
-              //   ),
-              //   color: const Color(0xffeaa504),
-              // ),
+
               ),
           body: SafeArea(
             child: Padding(
@@ -53,7 +43,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
                 children: [
                   Text(
                     'Choose Role',
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   SizedBox(
                     height: 6.h,

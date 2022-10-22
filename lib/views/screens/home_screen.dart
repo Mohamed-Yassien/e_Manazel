@@ -1,4 +1,8 @@
+import 'package:e_manazel/core/methods.dart';
 import 'package:e_manazel/generated/assets.dart';
+import 'package:e_manazel/views/screens/community_details_screen.dart';
+import 'package:e_manazel/views/screens/profile_screen.dart';
+import 'package:e_manazel/views/widgets/resuable_drawer_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,18 +23,27 @@ class HomeScreen extends StatelessWidget {
                     Assets.imagesLogo,
                   ),
                 ),
-                ListTile(
-                  onTap: () {},
-                  title: Text(
-                    'Profile',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: Color(0xffeaa504),
-                        ),
-                  ),
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Color(0xffeaa504),
-                  ),
+                ReusableDrawerListTile(
+                  title: 'Home',
+                  iconData: Icons.home,
+                  onPress: () {
+                    navigateTo(widget: const HomeScreen(), context: context);
+                  },
+                ),
+                ReusableDrawerListTile(
+                  title: 'Profile',
+                  iconData: Icons.person,
+                  onPress: () {
+                    navigateTo(widget: const ProfileScreen(), context: context);
+                  },
+                ),
+                ReusableDrawerListTile(
+                  iconData: Icons.group_add,
+                  title: 'Community Details',
+                  onPress: () {
+                    navigateTo(widget: const CommunityDetailsScreen(), context: context);
+
+                  },
                 ),
               ],
             ),
