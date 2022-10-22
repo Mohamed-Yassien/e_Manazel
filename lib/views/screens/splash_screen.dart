@@ -1,8 +1,7 @@
-import 'package:e_manazel/core/generated/assets.dart';
 import 'package:e_manazel/core/methods.dart';
 import 'package:e_manazel/core/responsive/ui_components/info_widget.dart';
-import 'package:e_manazel/views/screens/welcome_screen/welcome_screen.dart';
-import 'package:e_manazel/views/widgets/reusable_bg_container.dart';
+import 'package:e_manazel/generated/assets.dart';
+import 'package:e_manazel/views/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -32,10 +31,12 @@ class _SplashScreenState extends State<SplashScreen> {
       extendBodyBehindAppBar: true,
       body: InfoWidget(
         builder: (context, info) {
-          return ReusableBackgroundContainer(
-            info: info,
+          return Center(
             child: Image.asset(
               Assets.imagesLogo,
+              width: info.screenWidth,
+              height: info.screenHeight * .2,
+              fit: BoxFit.cover,
             ),
           );
         },

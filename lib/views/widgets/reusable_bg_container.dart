@@ -1,5 +1,5 @@
-import 'package:e_manazel/core/generated/assets.dart';
 import 'package:e_manazel/core/responsive/models/device_info.dart';
+import 'package:e_manazel/generated/assets.dart';
 import 'package:flutter/material.dart';
 
 class ReusableBackgroundContainer extends StatelessWidget {
@@ -17,7 +17,7 @@ class ReusableBackgroundContainer extends StatelessWidget {
     return Container(
       height: info.screenHeight,
       width: info.screenWidth,
-      decoration: const BoxDecoration(
+      decoration:  const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
             Assets.imagesBg,

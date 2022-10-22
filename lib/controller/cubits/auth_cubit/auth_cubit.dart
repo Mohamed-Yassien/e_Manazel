@@ -39,7 +39,7 @@ class AuthCubit extends Cubit<AuthStates> {
       },
     ).then((value) {
       adminLoginModel = AdminLoginModel.fromJson(value.data);
-      print(adminLoginModel!.data!.email);
+      print(value.data);
       emit(
         AdminLoginSuccessState(
           adminLoginModel: adminLoginModel!,
