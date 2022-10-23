@@ -1,60 +1,85 @@
-import 'package:e_manazel/core/methods.dart';
+import 'package:e_manazel/core/responsive/ui_components/info_widget.dart';
 import 'package:e_manazel/generated/assets.dart';
-import 'package:e_manazel/views/screens/community_details_screen.dart';
-import 'package:e_manazel/views/screens/profile_screen.dart';
-import 'package:e_manazel/views/widgets/resuable_drawer_list_tile.dart';
+import 'package:e_manazel/views/components/home_drawer_body.dart';
+import 'package:e_manazel/views/widgets/resuable_tab_bar_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+
+  List<String> tabBarTitles = [
+    'Dashboard',
+    'External Services',
+    'Contract',
+    'Maintenance',
+    'Complaint',
+    'Ads',
+    'Phone Book',
+    'Visitor',
+    'Violation',
+    'Payment',
+    'Panic Alerts',
+    'Events',
+  ];
+
+  List<String> tabBarImages = [
+    Assets.imagesDashboard,
+    Assets.imagesExternalServices,
+    Assets.imagesContract,
+    Assets.imagesMaintenance,
+    Assets.imagesComplaint,
+    Assets.imagesAds,
+    Assets.imagesPhoneBook,
+    Assets.imagesVisitors,
+    Assets.imagesViolation,
+    Assets.imagesPayment,
+    Assets.imagesPanic,
+    Assets.imagesEvents,
+  ];
+
+  int currentIndex=0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                DrawerHeader(
-                  child: Image.asset(
-                    Assets.imagesLogo,
-                  ),
-                ),
-                ReusableDrawerListTile(
-                  title: 'Home',
-                  iconData: Icons.home,
-                  onPress: () {
-                    navigateTo(widget: const HomeScreen(), context: context);
-                  },
-                ),
-                ReusableDrawerListTile(
-                  title: 'Profile',
-                  iconData: Icons.person,
-                  onPress: () {
-                    navigateTo(widget: const ProfileScreen(), context: context);
-                  },
-                ),
-                ReusableDrawerListTile(
-                  iconData: Icons.group_add,
-                  title: 'Community Details',
-                  onPress: () {
-                    navigateTo(widget: const CommunityDetailsScreen(), context: context);
-
-                  },
-                ),
-              ],
+    return DefaultTabController(
+      length: tabBarTitles.length,
+      child: InfoWidget(
+        builder: (context, info) {
+          return Scaffold(
+            drawer: const Drawer(
+              backgroundColor: Colors.white,
+              child: HomeDrawerBody(),
             ),
-          ),
-        ),
-      ),
-      appBar: AppBar(),
-      body: const Center(
-        child: Text(
-          'Home Screen',
-        ),
+            appBar: AppBar(
+                title: Text(
+                  tabBarTitles[currentIndex],
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+                toolbarHeight: info.screenHeight * .1,
+                bottom: TabBar(
+                  indicatorColor: Colors.transparent,
+                  physics: const BouncingScrollPhysics(),
+                  onTap: (int index) {
+                    currentIndex = index;
+                    print(currentIndex);
+                    print(index);
+                  },
+                  tabs: List.generate(
+                    tabBarTitles.length,
+                    (index) => ReusableTabBarItem(
+                      image: tabBarImages[index],
+                      title: tabBarTitles[index],
+                    ),
+                  ),
+                  isScrollable: true,
+                )),
+            body: const Center(
+              child: Text(
+                'Home Screen',
+              ),
+            ),
+          );
+        },
       ),
     );
   }

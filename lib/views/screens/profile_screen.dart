@@ -1,7 +1,7 @@
 import 'package:e_manazel/controller/cubits/auth_cubit/auth_cubit.dart';
-import 'package:e_manazel/core/network/api_constances.dart';
 import 'package:e_manazel/core/responsive/ui_components/info_widget.dart';
 import 'package:e_manazel/views/widgets/resuable_drawer_list_tile.dart';
+import 'package:e_manazel/views/widgets/reusable_circle_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -32,20 +32,9 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          padding: const EdgeInsets.all(40),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey.shade200,
-                            ),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.network(
-                            ApiConstance.getImageFullUrl(
-                              cubit.adminLoginModel!.data!.image!,
-                            ),
-                            width: info.screenWidth * .5,
-                          ),
+                        ReusableCircleImage(
+                          info: info,
+                          imagePath: cubit.adminLoginModel!.data!.image!,
                         ),
                         SizedBox(
                           height: 2.h,
@@ -101,7 +90,8 @@ class ProfileScreen extends StatelessWidget {
                     elevation: 5,
                     child: ReusableDrawerListTile(
                       title: 'community country code',
-                      subtitle: cubit.adminLoginModel!.data!.communityCountryCode,
+                      subtitle:
+                          cubit.adminLoginModel!.data!.communityCountryCode,
                       onPress: () {},
                       iconData: Icons.call,
                     ),

@@ -23,12 +23,18 @@ class AdminLoginScreen extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is AdminLoginSuccessState) {
+          if (state.adminLoginModel.success! == '0') {
+            showToast(
+                msg: state.adminLoginModel.message!,
+                toastStates: ToastStates.ERROR);
+            return;
+          }
           showToast(
             msg: state.adminLoginModel.message!,
             toastStates: ToastStates.SUCCESS,
           );
           navigateToAndFinish(
-            widget: const HomeScreen(),
+            widget:  HomeScreen(),
             context: context,
           );
         }

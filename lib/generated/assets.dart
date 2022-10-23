@@ -2,8 +2,20 @@
 class Assets {
   Assets._();
 
+  static const String imagesAds = 'assets/images/ads.png';
   static const String imagesBg = 'assets/images/bg.jpg';
+  static const String imagesComplaint = 'assets/images/complaint.png';
+  static const String imagesContract = 'assets/images/contract.png';
+  static const String imagesDashboard = 'assets/images/dashboard.png';
+  static const String imagesEvents = 'assets/images/events.png';
+  static const String imagesExternalServices = 'assets/images/external_services.png';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesMaintenance = 'assets/images/maintenance.png';
   static const String imagesMan = 'assets/images/man.png';
+  static const String imagesPanic = 'assets/images/panic.png';
+  static const String imagesPayment = 'assets/images/payment.png';
+  static const String imagesPhoneBook = 'assets/images/phone_book.png';
+  static const String imagesViolation = 'assets/images/violation.png';
+  static const String imagesVisitors = 'assets/images/visitors.png';
 
 }
