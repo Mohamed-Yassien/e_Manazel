@@ -6,7 +6,7 @@ import 'package:e_manazel/views/screens/tab_bar_screens/contract_screen.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/dashboard_screen.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/events_screen.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/external_services_screen.dart';
-import 'package:e_manazel/views/screens/tab_bar_screens/maintenance_screen.dart';
+import 'package:e_manazel/views/screens/tab_bar_screens/maitenance_screen/maintenance_screen.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/panic_alerts_screen.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/payment_screen.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/phone_book_screen.dart';

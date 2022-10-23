@@ -34,7 +34,7 @@ class AdminLoginScreen extends StatelessWidget {
             toastStates: ToastStates.SUCCESS,
           );
           navigateToAndFinish(
-            widget:  HomeScreen(),
+            widget:  const HomeScreen(),
             context: context,
           );
         }

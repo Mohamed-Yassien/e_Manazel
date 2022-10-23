@@ -25,7 +25,7 @@ class HomeDrawerBody extends StatelessWidget {
               title: 'Home',
               iconData: Icons.home,
               onPress: () {
-                navigateTo(widget:  HomeScreen(), context: context);
+                navigateTo(widget: const HomeScreen(), context: context);
               },
             ),
             ReusableDrawerListTile(

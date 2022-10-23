@@ -7,12 +7,16 @@ class ReusableDrawerListTile extends StatelessWidget {
     required this.onPress,
     required this.iconData,
     this.subtitle,
+    this.subtitleColor,
+    this.inDetails = false,
   }) : super(key: key);
 
   final String title;
   final VoidCallback onPress;
   final IconData iconData;
   final String? subtitle;
+  final Color? subtitleColor;
+  final bool inDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +29,8 @@ class ReusableDrawerListTile extends StatelessWidget {
       subtitle: Text(
         subtitle ?? '',
         style: Theme.of(context).textTheme.caption!.copyWith(
-          color: Colors.grey[600],
-          fontWeight: FontWeight.w300,
+          color: subtitleColor ?? Colors.grey[600],
+          fontWeight: inDetails ? FontWeight.w800 :  FontWeight.w300,
         ),
       ),
       title: Text(
