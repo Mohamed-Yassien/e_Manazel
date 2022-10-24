@@ -74,7 +74,7 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 height: 2.h,
                               ),
                               Card(
-                                elevation: 5,
+                                
                                 child: ReusableDrawerListTile(
                                   title: 'description',
                                   subtitle: communityCubit
@@ -86,7 +86,7 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                elevation: 5,
+                                
                                 child: ReusableDrawerListTile(
                                   title: 'contact',
                                   subtitle: communityCubit
@@ -96,7 +96,7 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                elevation: 5,
+                                
                                 child: ReusableDrawerListTile(
                                   title: 'location',
                                   subtitle: communityCubit
@@ -106,7 +106,7 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                elevation: 5,
+                                
                                 child: ReusableDrawerListTile(
                                   title: 'city',
                                   subtitle: communityCubit
@@ -116,7 +116,7 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                elevation: 5,
+                                
                                 child: ReusableDrawerListTile(
                                   title: 'area',
                                   subtitle: communityCubit
@@ -126,7 +126,7 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                elevation: 5,
+                                
                                 child: ReusableDrawerListTile(
                                   title: 'country code',
                                   subtitle: communityCubit

@@ -1,7 +1,7 @@
 class MaintenanceRequestsModel {
   String? success;
   String? message;
-  List<Data>? data;
+  List<MaintenanceRequestsData>? data;
   String? command;
 
   MaintenanceRequestsModel(
@@ -11,9 +11,9 @@ class MaintenanceRequestsModel {
     success = json['success'];
     message = json['message'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <MaintenanceRequestsData>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(MaintenanceRequestsData.fromJson(v));
       });
     }
     command = json['command'];
@@ -31,7 +31,7 @@ class MaintenanceRequestsModel {
   }
 }
 
-class Data {
+class MaintenanceRequestsData {
   String? panicId;
   String? requestId;
   String? service;
@@ -55,7 +55,7 @@ class Data {
   String? jobStart;
   String? jobEnd;
 
-  Data(
+  MaintenanceRequestsData(
       {this.panicId,
       this.requestId,
       this.service,
@@ -79,7 +79,7 @@ class Data {
       this.jobStart,
       this.jobEnd});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  MaintenanceRequestsData.fromJson(Map<String, dynamic> json) {
     panicId = json['panic_id'];
     requestId = json['request_id'];
     service = json['service'];

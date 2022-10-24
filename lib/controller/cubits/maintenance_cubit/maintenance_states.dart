@@ -27,3 +27,5 @@ class GetMaintenanceByIdErrorState extends MaintenanceStates {
     required this.message,
   });
 }
+
+class FilterMaintenanceRequestsByStatusState extends MaintenanceStates {}

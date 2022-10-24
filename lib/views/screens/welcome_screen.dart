@@ -35,11 +35,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        Assets.imagesLogo,
-                        width: info.screenWidth,
-                        height: info.screenHeight * .2,
-                        fit: BoxFit.contain,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          Assets.imagesLogo,
+                          width: info.screenWidth * .7,
+                          height: info.screenHeight * .2,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                       SizedBox(
                         height: 5.h,

@@ -63,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 2.h,
                   ),
                   Card(
-                    elevation: 5,
+
                     child: ReusableDrawerListTile(
                       title: 'email',
                       subtitle: cubit.adminLoginModel!.data!.email,
@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 1.h,
                   ),
                   Card(
-                    elevation: 5,
+
                     child: ReusableDrawerListTile(
                       title: 'community name',
                       subtitle: cubit.adminLoginModel!.data!.communityName,
@@ -87,7 +87,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 1.h,
                   ),
                   Card(
-                    elevation: 5,
+
                     child: ReusableDrawerListTile(
                       title: 'community country code',
                       subtitle:
@@ -100,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 1.h,
                   ),
                   Card(
-                    elevation: 5,
+
                     child: ReusableDrawerListTile(
                       title: 'phone number',
                       subtitle: cubit.adminLoginModel!.data!.mobile,

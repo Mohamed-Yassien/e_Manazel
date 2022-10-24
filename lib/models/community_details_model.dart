@@ -1,7 +1,7 @@
 class CommunityDetailsModel {
   String? success;
   String? message;
-  Data? data;
+  CommunityDetailsData? data;
   String? command;
 
   CommunityDetailsModel({this.success, this.message, this.data, this.command});
@@ -9,7 +9,7 @@ class CommunityDetailsModel {
   CommunityDetailsModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? CommunityDetailsData.fromJson(json['data']) : null;
     command = json['command'];
   }
 
@@ -25,7 +25,7 @@ class CommunityDetailsModel {
   }
 }
 
-class Data {
+class CommunityDetailsData {
   String? id;
   String? name;
   String? jobCodeStaus;
@@ -46,7 +46,7 @@ class Data {
   String? shortname;
   List<String>? images;
 
-  Data(
+  CommunityDetailsData(
       {this.id,
       this.name,
       this.jobCodeStaus,
@@ -67,7 +67,7 @@ class Data {
       this.shortname,
       this.images});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  CommunityDetailsData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     jobCodeStaus = json['job_code_staus'];

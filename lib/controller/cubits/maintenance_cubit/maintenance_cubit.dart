@@ -12,6 +12,7 @@ class MaintenanceCubit extends Cubit<MaintenanceStates> {
   static MaintenanceCubit get(context) => BlocProvider.of(context);
 
   MaintenanceRequestsModel? maintenanceRequestsModel;
+  List<MaintenanceRequestsData>? requestsData;
 
   void getMaintenanceRequestsData({
     required String userId,
@@ -26,6 +27,7 @@ class MaintenanceCubit extends Cubit<MaintenanceStates> {
     }).then((value) {
       print(value.data);
       maintenanceRequestsModel = MaintenanceRequestsModel.fromJson(value.data);
+      requestsData = maintenanceRequestsModel!.data!;
       emit(GetAllMaintenanceRequestsSuccessState());
     }).catchError((e) {
       print(e.toString());
@@ -114,5 +116,30 @@ class MaintenanceCubit extends Cubit<MaintenanceStates> {
         );
       },
     );
+  }
+
+  List<String> statusItems = [
+    'pending',
+    'accepted',
+    'rejected',
+    'All',
+  ];
+
+  List<MaintenanceRequestsData> filteredRequestsData = [];
+
+  void filterMaintenanceRequestsByStatus(String status) {
+    filteredRequestsData = [];
+    for (var request in maintenanceRequestsModel!.data!) {
+      if(status == '3'){
+        filteredRequestsData = maintenanceRequestsModel!.data!;
+      }
+      if (request.staffStatus == status) {
+        if (!filteredRequestsData.contains(request)) {
+          filteredRequestsData.add(request);
+        }
+      }
+    }
+    requestsData = filteredRequestsData;
+    emit(FilterMaintenanceRequestsByStatusState());
   }
 }

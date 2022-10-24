@@ -1,7 +1,7 @@
 class AdminLoginModel {
   String? success;
   String? message;
-  Data? data;
+  LoginData? data;
   String? command;
 
   AdminLoginModel({this.success, this.message, this.data, this.command});
@@ -9,7 +9,7 @@ class AdminLoginModel {
   AdminLoginModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
-    data = json['data'] != null ?  Data.fromJson(json['data']) : null;
+    data = json['data'] != null ?  LoginData.fromJson(json['data']) : null;
     command = json['command'];
   }
 
@@ -25,7 +25,7 @@ class AdminLoginModel {
   }
 }
 
-class Data {
+class LoginData {
   String? userId;
   String? name;
   String? email;
@@ -44,7 +44,7 @@ class Data {
   String? unit;
   String? userStatus;
 
-  Data(
+  LoginData(
       {this.userId,
         this.name,
         this.email,
@@ -63,7 +63,7 @@ class Data {
         this.unit,
         this.userStatus});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  LoginData.fromJson(Map<String, dynamic> json) {
     userId = json['user_id'];
     name = json['name'];
     email = json['email'];

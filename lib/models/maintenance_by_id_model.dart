@@ -1,18 +1,18 @@
 class MaintenanceByIdModel {
   String? success;
   String? message;
-  Data? data;
+  RequestDetailsData? data;
   String? command;
 
   MaintenanceByIdModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? RequestDetailsData.fromJson(json['data']) : null;
     command = json['command'];
   }
 }
 
-class Data {
+class RequestDetailsData {
   String? id;
   String? userId;
   String? communityId;
@@ -49,7 +49,7 @@ class Data {
   String? jobStart;
   String? jobEnd;
 
-  Data(
+  RequestDetailsData(
       {this.id,
       this.userId,
       this.communityId,
@@ -86,8 +86,8 @@ class Data {
       this.jobStart,
       this.jobEnd});
 
-  factory Data.fromJson(dynamic json) {
-    return Data(
+  factory RequestDetailsData.fromJson(dynamic json) {
+    return RequestDetailsData(
       id: json['id'],
       userId: json['user_id'],
       communityId: json['community_id'],
