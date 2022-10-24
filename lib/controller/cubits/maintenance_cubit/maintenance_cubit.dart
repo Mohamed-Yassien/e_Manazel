@@ -6,6 +6,8 @@ import 'package:e_manazel/models/maintenance_requests_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class MaintenanceCubit extends Cubit<MaintenanceStates> {
   MaintenanceCubit() : super(MaintenanceInitialState());
 
@@ -35,17 +37,17 @@ class MaintenanceCubit extends Cubit<MaintenanceStates> {
     });
   }
 
-  String getStatusName(String statusCode) {
+  String getStatusName(String statusCode, context) {
     String statusName = '';
     switch (statusCode) {
       case '0':
-        statusName = 'pending';
+        statusName = AppLocalizations.of(context)!.pending;
         break;
       case '1':
-        statusName = 'accepted';
+        statusName = AppLocalizations.of(context)!.accepted;
         break;
       case '2':
-        statusName = 'rejected';
+        statusName = AppLocalizations.of(context)!.rejected;
         break;
       default:
         statusName = '';
@@ -118,19 +120,19 @@ class MaintenanceCubit extends Cubit<MaintenanceStates> {
     );
   }
 
-  List<String> statusItems = [
-    'pending',
-    'accepted',
-    'rejected',
-    'All',
-  ];
+  List<String> statusItems(context) => [
+        AppLocalizations.of(context)!.pending,
+        AppLocalizations.of(context)!.accepted,
+        AppLocalizations.of(context)!.rejected,
+        AppLocalizations.of(context)!.all,
+      ];
 
   List<MaintenanceRequestsData> filteredRequestsData = [];
 
   void filterMaintenanceRequestsByStatus(String status) {
     filteredRequestsData = [];
     for (var request in maintenanceRequestsModel!.data!) {
-      if(status == '3'){
+      if (status == '3') {
         filteredRequestsData = maintenanceRequestsModel!.data!;
       }
       if (request.staffStatus == status) {

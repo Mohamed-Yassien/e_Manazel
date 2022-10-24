@@ -6,6 +6,8 @@ import 'package:e_manazel/views/widgets/resuable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class LoginRoleScreen extends StatefulWidget {
   const LoginRoleScreen({Key? key}) : super(key: key);
 
@@ -14,14 +16,14 @@ class LoginRoleScreen extends StatefulWidget {
 }
 
 class _LoginRoleScreenState extends State<LoginRoleScreen> {
-  List<String> roles = [
-    'community admin',
-    'community member',
-    'service provider',
-    'maintenance manager',
-    'maintenance staff',
-    'security staff',
-  ];
+  List<String> roles(context) => [
+        AppLocalizations.of(context)!.com_admin,
+        AppLocalizations.of(context)!.com_member,
+        AppLocalizations.of(context)!.service_provider,
+        AppLocalizations.of(context)!.maintenance_manager,
+        AppLocalizations.of(context)!.maintenance_staff,
+        AppLocalizations.of(context)!.security_staff,
+      ];
 
   int? currentIndex;
 
@@ -31,9 +33,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
       builder: (context, info) {
         return Scaffold(
           extendBodyBehindAppBar: true,
-          appBar: AppBar(
-
-              ),
+          appBar: AppBar(),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -42,7 +42,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Choose Role',
+                    AppLocalizations.of(context)!.choose_role,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   SizedBox(
@@ -56,7 +56,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
                         mainAxisSpacing: 2.h,
                         crossAxisSpacing: 4.h,
                       ),
-                      itemCount: roles.length,
+                      itemCount: roles(context).length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -90,7 +90,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
                                       height: 1.h,
                                     ),
                                     Text(
-                                      roles[index],
+                                      roles(context)[index],
                                       style: Theme.of(context)
                                           .textTheme
                                           .caption!
@@ -114,7 +114,7 @@ class _LoginRoleScreenState extends State<LoginRoleScreen> {
                   SizedBox(
                     width: info.screenWidth,
                     child: ReusableButton(
-                      title: 'Continue',
+                      title: AppLocalizations.of(context)!.cont,
                       onPress: () {
                         switch (currentIndex) {
                           case 0:

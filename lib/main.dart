@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
@@ -16,8 +18,26 @@ main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+
+  static void setLocale(BuildContext context, Locale locale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(locale);
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale? userLocale;
+
+  setLocale(Locale locale) {
+    setState(() {
+      userLocale = locale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +51,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: lightTheme,
             themeMode: ThemeMode.light,
-            home:  const SplashScreen(),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: Locale(CacheHelper.getData(key: 'lang') ?? 'en', ''),
+            home: const SplashScreen(),
           ),
         );
       },

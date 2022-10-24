@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CommunityDetailsScreen extends StatelessWidget {
   const CommunityDetailsScreen({Key? key}) : super(key: key);
 
@@ -31,7 +33,7 @@ class CommunityDetailsScreen extends StatelessWidget {
               return Scaffold(
                 appBar: AppBar(
                   title: Text(
-                    'Community Details',
+                    AppLocalizations.of(context)!.com_details,
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
@@ -74,9 +76,8 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 height: 2.h,
                               ),
                               Card(
-                                
                                 child: ReusableDrawerListTile(
-                                  title: 'description',
+                                  title: AppLocalizations.of(context)!.desc,
                                   subtitle: communityCubit
                                       .communityDetailsModel!
                                       .data!
@@ -86,9 +87,8 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                
                                 child: ReusableDrawerListTile(
-                                  title: 'contact',
+                                  title: AppLocalizations.of(context)!.contact,
                                   subtitle: communityCubit
                                       .communityDetailsModel!.data!.contact!,
                                   onPress: () {},
@@ -96,9 +96,8 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                
                                 child: ReusableDrawerListTile(
-                                  title: 'location',
+                                  title: AppLocalizations.of(context)!.location,
                                   subtitle: communityCubit
                                       .communityDetailsModel!.data!.location!,
                                   onPress: () {},
@@ -106,9 +105,8 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                
                                 child: ReusableDrawerListTile(
-                                  title: 'city',
+                                  title: AppLocalizations.of(context)!.city,
                                   subtitle: communityCubit
                                       .communityDetailsModel!.data!.city!,
                                   onPress: () {},
@@ -116,9 +114,8 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                
                                 child: ReusableDrawerListTile(
-                                  title: 'area',
+                                  title: AppLocalizations.of(context)!.area,
                                   subtitle: communityCubit
                                       .communityDetailsModel!.data!.area!,
                                   onPress: () {},
@@ -126,9 +123,9 @@ class CommunityDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Card(
-                                
                                 child: ReusableDrawerListTile(
-                                  title: 'country code',
+                                  title: AppLocalizations.of(context)!
+                                      .country_code,
                                   subtitle: communityCubit
                                       .communityDetailsModel!
                                       .data!

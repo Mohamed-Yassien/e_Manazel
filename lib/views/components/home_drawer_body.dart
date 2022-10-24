@@ -6,6 +6,8 @@ import 'package:e_manazel/views/screens/profile_screen.dart';
 import 'package:e_manazel/views/widgets/resuable_drawer_list_tile.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HomeDrawerBody extends StatelessWidget {
   const HomeDrawerBody({Key? key}) : super(key: key);
 
@@ -22,14 +24,14 @@ class HomeDrawerBody extends StatelessWidget {
               ),
             ),
             ReusableDrawerListTile(
-              title: 'Home',
+              title: AppLocalizations.of(context)!.home,
               iconData: Icons.home,
               onPress: () {
                 navigateTo(widget: const HomeScreen(), context: context);
               },
             ),
             ReusableDrawerListTile(
-              title: 'Profile',
+              title: AppLocalizations.of(context)!.profile,
               iconData: Icons.person,
               onPress: () {
                 navigateTo(widget: const ProfileScreen(), context: context);
@@ -37,7 +39,7 @@ class HomeDrawerBody extends StatelessWidget {
             ),
             ReusableDrawerListTile(
               iconData: Icons.group_add,
-              title: 'Community Details',
+              title: AppLocalizations.of(context)!.com_details,
               onPress: () {
                 navigateTo(
                   widget: const CommunityDetailsScreen(),

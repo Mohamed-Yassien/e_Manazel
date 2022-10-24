@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -18,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'Profile',
+              AppLocalizations.of(context)!.profile,
               style: Theme.of(context).textTheme.bodyText1,
             ),
           ),
@@ -65,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                   Card(
 
                     child: ReusableDrawerListTile(
-                      title: 'email',
+                      title: AppLocalizations.of(context)!.email,
                       subtitle: cubit.adminLoginModel!.data!.email,
                       onPress: () {},
                       iconData: Icons.email,
@@ -77,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
                   Card(
 
                     child: ReusableDrawerListTile(
-                      title: 'community name',
+                      title:AppLocalizations.of(context)!.com_name,
                       subtitle: cubit.adminLoginModel!.data!.communityName,
                       onPress: () {},
                       iconData: Icons.group,
@@ -89,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                   Card(
 
                     child: ReusableDrawerListTile(
-                      title: 'community country code',
+                      title: AppLocalizations.of(context)!.com_country_code,
                       subtitle:
                           cubit.adminLoginModel!.data!.communityCountryCode,
                       onPress: () {},
@@ -102,7 +105,7 @@ class ProfileScreen extends StatelessWidget {
                   Card(
 
                     child: ReusableDrawerListTile(
-                      title: 'phone number',
+                      title: AppLocalizations.of(context)!.phone_number,
                       subtitle: cubit.adminLoginModel!.data!.mobile,
                       onPress: () {},
                       iconData: Icons.call,

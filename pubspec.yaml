@@ -29,6 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -56,6 +59,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -64,7 +68,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
+    - assets/images/ads.png
+    - assets/images/bg.jpg
+    - assets/images/complaint.png
+    - assets/images/contract.png
+    - assets/images/dashboard.png
+    - assets/images/events.png
+    - assets/images/external_services.png
+    - assets/images/logo.png
+    - assets/images/maintenance.png
+    - assets/images/man.png
+    - assets/images/panic.png
+    - assets/images/payment.png
+    - assets/images/phone_book.png
+    - assets/images/violation.png
+    - assets/images/visitors.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

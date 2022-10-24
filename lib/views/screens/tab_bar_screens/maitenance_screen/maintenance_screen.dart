@@ -3,12 +3,15 @@ import 'package:e_manazel/controller/cubits/maintenance_cubit/maintenance_cubit.
 import 'package:e_manazel/controller/cubits/maintenance_cubit/maintenance_states.dart';
 import 'package:e_manazel/core/methods.dart';
 import 'package:e_manazel/core/network/api_constances.dart';
+import 'package:e_manazel/core/network/local/cache_helper.dart';
 import 'package:e_manazel/core/responsive/ui_components/info_widget.dart';
 import 'package:e_manazel/generated/assets.dart';
 import 'package:e_manazel/views/screens/tab_bar_screens/maitenance_screen/maintenance_details_screen.dart';
 import 'package:e_manazel/views/widgets/reusable_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MaintenanceScreen extends StatelessWidget {
   const MaintenanceScreen({Key? key}) : super(key: key);
@@ -69,7 +72,8 @@ class MaintenanceScreen extends StatelessWidget {
                                   child: DropdownButtonHideUnderline(
                                     child: DropdownButton<String>(
                                       hint: Text(
-                                        'select status',
+                                        AppLocalizations.of(context)!
+                                            .select_status,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall,
@@ -79,14 +83,16 @@ class MaintenanceScreen extends StatelessWidget {
                                       iconDisabledColor:
                                           const Color(0xffeaa504),
                                       items: List.generate(
-                                        maintenanceCubit.statusItems.length,
+                                        maintenanceCubit
+                                            .statusItems(context)
+                                            .length,
                                         (index) {
                                           return DropdownMenuItem<String>(
                                             value: maintenanceCubit
-                                                .statusItems[index],
+                                                .statusItems(context)[index],
                                             child: Text(
                                               maintenanceCubit
-                                                  .statusItems[index],
+                                                  .statusItems(context)[index],
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .titleMedium!
@@ -122,7 +128,8 @@ class MaintenanceScreen extends StatelessWidget {
                             Expanded(
                               child: ListView.builder(
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: maintenanceCubit.requestsData!.length,
+                                itemCount:
+                                    maintenanceCubit.requestsData!.length,
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
@@ -169,7 +176,8 @@ class MaintenanceScreen extends StatelessWidget {
                                                       ApiConstance
                                                           .getImageFullUrl(
                                                         maintenanceCubit
-                                                            .requestsData![index]
+                                                            .requestsData![
+                                                                index]
                                                             .image!,
                                                       ),
                                                     ),
@@ -183,9 +191,18 @@ class MaintenanceScreen extends StatelessWidget {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    maintenanceCubit
-                                                        .requestsData![index]
-                                                        .service!,
+                                                    CacheHelper.getData(
+                                                              key: 'lang',
+                                                            ) ==
+                                                            'en'
+                                                        ? maintenanceCubit
+                                                            .requestsData![
+                                                                index]
+                                                            .service!
+                                                        : maintenanceCubit
+                                                            .requestsData![
+                                                                index]
+                                                            .serviceAr!,
                                                     style: const TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:
@@ -216,6 +233,7 @@ class MaintenanceScreen extends StatelessWidget {
                                                 maintenanceCubit
                                                     .requestsData![index]
                                                     .staffStatus!,
+                                                context,
                                               ),
                                               style: Theme.of(context)
                                                   .textTheme

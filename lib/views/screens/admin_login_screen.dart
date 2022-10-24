@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AdminLoginScreen extends StatelessWidget {
   AdminLoginScreen({Key? key}) : super(key: key);
 
@@ -25,8 +27,9 @@ class AdminLoginScreen extends StatelessWidget {
         if (state is AdminLoginSuccessState) {
           if (state.adminLoginModel.success! == '0') {
             showToast(
-                msg: state.adminLoginModel.message!,
-                toastStates: ToastStates.ERROR);
+              msg: state.adminLoginModel.message!,
+              toastStates: ToastStates.ERROR,
+            );
             return;
           }
           showToast(
@@ -34,7 +37,7 @@ class AdminLoginScreen extends StatelessWidget {
             toastStates: ToastStates.SUCCESS,
           );
           navigateToAndFinish(
-            widget:  const HomeScreen(),
+            widget: const HomeScreen(),
             context: context,
           );
         }
@@ -63,8 +66,8 @@ class AdminLoginScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Login as community admin',
-                            style: Theme.of(context).textTheme.bodyText2,
+                            AppLocalizations.of(context)!.login,
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                           SizedBox(
                             height: 7.h,
@@ -76,10 +79,11 @@ class AdminLoginScreen extends StatelessWidget {
                                 ReusableTextField(
                                   textInputType: TextInputType.emailAddress,
                                   controller: emailController,
-                                  label: 'email',
+                                  label: AppLocalizations.of(context)!.email,
                                   validate: (val) {
                                     if (val.isEmpty) {
-                                      return 'email is required';
+                                      return AppLocalizations.of(context)!
+                                          .email_req;
                                     }
                                   },
                                 ),
@@ -90,7 +94,7 @@ class AdminLoginScreen extends StatelessWidget {
                                   secureText: cubit.isPassword,
                                   textInputType: TextInputType.text,
                                   controller: passwordController,
-                                  label: 'password',
+                                  label: AppLocalizations.of(context)!.password,
                                   suffixIcon: IconButton(
                                     icon: Icon(
                                       cubit.iconData,
@@ -103,7 +107,8 @@ class AdminLoginScreen extends StatelessWidget {
                                   hasPassword: true,
                                   validate: (val) {
                                     if (val.isEmpty) {
-                                      return 'password is required';
+                                      return AppLocalizations.of(context)!
+                                          .password_req;
                                     }
                                   },
                                 ),
@@ -120,7 +125,7 @@ class AdminLoginScreen extends StatelessWidget {
                                     child: CircularProgressIndicator(),
                                   )
                                 : ReusableButton(
-                                    title: 'Login',
+                                    title: AppLocalizations.of(context)!.login,
                                     onPress: () {
                                       if (formKey.currentState!.validate()) {
                                         cubit.loginAdmin(

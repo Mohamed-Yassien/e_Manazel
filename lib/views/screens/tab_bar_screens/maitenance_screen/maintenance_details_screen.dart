@@ -1,11 +1,14 @@
 import 'package:e_manazel/controller/cubits/maintenance_cubit/maintenance_cubit.dart';
 import 'package:e_manazel/core/network/api_constances.dart';
+import 'package:e_manazel/core/network/local/cache_helper.dart';
 import 'package:e_manazel/core/responsive/ui_components/info_widget.dart';
 import 'package:e_manazel/models/maintenance_by_id_model.dart';
 import 'package:e_manazel/views/widgets/resuable_drawer_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MaintenanceDetailsScreen extends StatelessWidget {
   const MaintenanceDetailsScreen({
@@ -52,7 +55,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                                     color: Color(0xffeaa504),
                                   ),
                                   Text(
-                                    'no image here',
+                                    AppLocalizations.of(context)!.no_image,
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium!
@@ -80,7 +83,12 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                       height: 2.h,
                     ),
                     Text(
-                      maintenanceByIdModel.data!.service!,
+                      CacheHelper.getData(
+                                key: 'lang',
+                              ) ==
+                              'en'
+                          ? maintenanceByIdModel.data!.service!
+                          : maintenanceByIdModel.data!.serviceAr!,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     SizedBox(
@@ -88,7 +96,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                     ),
                     Card(
                       child: ReusableDrawerListTile(
-                        title: 'requested by',
+                        title: AppLocalizations.of(context)!.requested_by,
                         subtitle: maintenanceByIdModel.data!.userName,
                         onPress: () {},
                         iconData: Icons.person,
@@ -96,7 +104,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                     ),
                     Card(
                       child: ReusableDrawerListTile(
-                        title: 'price',
+                        title: AppLocalizations.of(context)!.price,
                         subtitle: maintenanceByIdModel.data!.price,
                         onPress: () {},
                         iconData: Icons.price_change_rounded,
@@ -104,7 +112,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                     ),
                     Card(
                       child: ReusableDrawerListTile(
-                        title: 'date of request',
+                        title: AppLocalizations.of(context)!.date_of_request,
                         subtitle: maintenanceByIdModel.data!.onDate,
                         onPress: () {},
                         iconData: Icons.date_range,
@@ -112,7 +120,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                     ),
                     Card(
                       child: ReusableDrawerListTile(
-                        title: 'time of request',
+                        title: AppLocalizations.of(context)!.time_of_request,
                         subtitle: maintenanceByIdModel.data!.timeFrom,
                         onPress: () {},
                         iconData: Icons.timelapse,
@@ -125,10 +133,11 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                             context.read<MaintenanceCubit>().getStatusColor(
                                   maintenanceByIdModel.data!.staffStatus!,
                                 ),
-                        title: 'staff status',
+                        title: AppLocalizations.of(context)!.staff_status,
                         subtitle:
                             context.read<MaintenanceCubit>().getStatusName(
                                   maintenanceByIdModel.data!.staffStatus!,
+                                  context,
                                 ),
                         onPress: () {},
                         iconData: Icons.add_circle,
@@ -141,10 +150,11 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                             context.read<MaintenanceCubit>().getStatusColor(
                                   maintenanceByIdModel.data!.status!,
                                 ),
-                        title: 'status',
+                        title: AppLocalizations.of(context)!.status,
                         subtitle:
                             context.read<MaintenanceCubit>().getStatusName(
                                   maintenanceByIdModel.data!.status!,
+                                  context,
                                 ),
                         onPress: () {},
                         iconData: Icons.add_circle,
@@ -157,17 +167,17 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                             maintenanceByIdModel.data!.taskStatus == '0'
                                 ? Colors.red
                                 : Colors.green,
-                        title: 'task status',
+                        title: AppLocalizations.of(context)!.task_status,
                         subtitle: maintenanceByIdModel.data!.taskStatus == '0'
-                            ? 'Not Done'
-                            : 'Done',
+                            ? AppLocalizations.of(context)!.not_done
+                            : AppLocalizations.of(context)!.done,
                         onPress: () {},
                         iconData: Icons.add_circle,
                       ),
                     ),
                     Card(
                       child: ReusableDrawerListTile(
-                        title: 'staff name',
+                        title: AppLocalizations.of(context)!.staff_name,
                         subtitle: maintenanceByIdModel.data!.staffName,
                         onPress: () {},
                         iconData: Icons.group_add,

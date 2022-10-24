@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           var cubit = HomeCubit.get(context);
 
           return DefaultTabController(
-            length: cubit.tabBarTitles.length,
+            length: cubit.tabBarTitles(context).length,
             child: InfoWidget(
               builder: (context, info) {
                 return Scaffold(
@@ -28,6 +28,16 @@ class HomeScreen extends StatelessWidget {
                   ),
                   appBar: AppBar(
                     actions: [
+                      TextButton(
+                        onPressed: () {
+                          cubit.changeLanguage(
+                              cubit.isArabic ?? false, context);
+                        },
+                        child: Text(
+                          cubit.getLangButtonName(),
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
                       IconButton(
                         onPressed: () {},
                         icon: const Icon(
@@ -37,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                     title: Text(
-                      cubit.tabBarTitles[cubit.currentIndex],
+                      cubit.tabBarTitles(context)[cubit.currentIndex],
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     toolbarHeight: info.screenHeight * .1,
@@ -48,10 +58,10 @@ class HomeScreen extends StatelessWidget {
                         cubit.changeTabBarIndex(index: index);
                       },
                       tabs: List.generate(
-                        cubit.tabBarTitles.length,
+                        cubit.tabBarTitles(context).length,
                         (index) => ReusableTabBarItem(
                           image: cubit.tabBarImages[index],
-                          title: cubit.tabBarTitles[index],
+                          title: cubit.tabBarTitles(context)[index],
                         ),
                       ),
                       isScrollable: true,

@@ -19,7 +19,7 @@ class ReusableButton extends StatelessWidget {
       child: MaterialButton(
         onPressed: onPress,
         shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(7),
+          borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide.none,
         ),
         color: const Color(0xffeaa504),
